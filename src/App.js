@@ -1,4 +1,5 @@
-import React,{useState,useEffect,Fragment} from 'react';
+import React,{useState,useEffect} from 'react';
+import ScrollToTop from 'react-router-scroll-top';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,14 +8,15 @@ import {
 
 import './App.css';
 import Home from './pages/Home'
-import Navbar from './components/Navbar'
 import MovieDetail from './pages/MovieDetail';
 
 function App() {
 
+
   const [movies,setMovies]=useState([]);
   // const [movieDetail,setMovieDetail]=useState({});
   const [loading,setLoading]=useState(false);
+ 
   // Get movies new Releases
 
   const getMovies = async(movie)=>{
@@ -23,12 +25,23 @@ function App() {
     
     const data = await response.json();
 
-    console.log(data.results);
+    
     setMovies(data.results);
     setLoading(false);
   }
 
-  // Get Single Movie
+
+
+  // Get Movie genre
+  const getMoviesGenre = async(id)=>{
+    setLoading(true);
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${id}`);
+    
+    const data = await response.json();
+
+    setMovies(data.results);
+    setLoading(false);
+  }
 
   // change Link li
 
@@ -36,31 +49,36 @@ function App() {
 
  useEffect(()=>{
   getMovies('now_playing');
-
-
-
+  
 
  },[]);
 
 
   return (
     <Router>
+      <ScrollToTop>
+
+      
 
     <div className="App">
-      <Navbar getMovies={getMovies}/>
-        <Switch>
-          <Route exact path='/'component={props=>(
-            <Home loading={loading} movies={movies}/>
+    
+   
+      <Switch>
+      
+          <Route exact path='/' render={props=>(
+           
+            <Home {...props} loading={loading} movies={movies} getMoviesGenre={getMoviesGenre} getMovies={getMovies}/>
           )}/>
-          <Route exact path='/movie/:id' component={props=>(
-           <Fragment>
+          <Route exact path='/movie/:id' render={props=>(
+           
               <MovieDetail {...props} />
-           </Fragment>
+          
           )}/>
 
         </Switch>
     
     </div>
+    </ScrollToTop>
     </Router>
   );
 }
