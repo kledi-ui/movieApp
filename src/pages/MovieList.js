@@ -9,7 +9,7 @@ function MovieList({movies,loading}) {
       <div className="grid">
      
     {movies.map(movie=>(
-      <Movie title={movie.title} release={movie.release_date} image={movie.poster_path} key={movie.id} id={movie.id}/>
+      <Movie title={movie.title} release={movie.release_date} image={movie.poster_path} rating={movie.vote_average} key={movie.id} id={movie.id}/>
     ))}
     
       </div>

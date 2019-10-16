@@ -9,6 +9,9 @@ function Movie(props) {
       <img src={`https://image.tmdb.org/t/p/original${props.image}`} alt=""/>
       <h1>{props.title}</h1>
       <h2>{props.release}</h2>
+      <div className="rating">
+      <i className="fas fa-star"></i>{props.rating}
+      </div>
       </div>
       </Link>
       

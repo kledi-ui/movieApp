@@ -1,12 +1,15 @@
 import React from 'react'
-
+import Stars from './Stars';
 function MovieExtra({movie}) {
 
- 
+
+
+
   return (
     <div>
     <h1 className="mb title">{movie.title}</h1>
-     <h2 className="mb">Rating: {movie.vote_average}</h2>
+     <h2 className="mb">Rating: {movie.vote_average} / 10</h2>
+     <Stars vote={movie.vote_average}/>
      <h3 className="mb">{movie.tagline}</h3>
      <div className="genres mb">
      {movie.genres ? movie.genres.map((name,index)=>(
