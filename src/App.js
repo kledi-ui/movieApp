@@ -43,6 +43,19 @@ function App() {
     setLoading(false);
   }
 
+
+  // Search movie by name
+
+  const searchMovie = async(name)=>{
+    setLoading(true);
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&query=${name}&page=1&include_adult=false`);
+    
+    const data = await response.json();
+
+    // console.log(data);
+    setMovies(data.results);
+    setLoading(false);
+  }
   // change Link li
 
 
@@ -67,10 +80,10 @@ function App() {
       
           <Route exact path='/' render={props=>(
            
-            <Home {...props} loading={loading} movies={movies} getMoviesGenre={getMoviesGenre} getMovies={getMovies}/>
+            <Home {...props} loading={loading} movies={movies} getMoviesGenre={getMoviesGenre} getMovies={getMovies} searchMovie={searchMovie}/>
           )}/>
           <Route exact path='/movie/:id' render={props=>(
-           
+               
               <MovieDetail {...props} />
           
           )}/>

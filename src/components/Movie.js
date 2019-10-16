@@ -2,11 +2,12 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 function Movie(props) {
  
-  return (
-    <div>
+  if(props.image){
+    return (
       <Link to={`/movie/${props.id}`}>
       <div className="movie">
       <img src={`https://image.tmdb.org/t/p/original${props.image}`} alt=""/>
+      
       <h1>{props.title}</h1>
       <h2>{props.release}</h2>
       <div className="rating">
@@ -14,7 +15,11 @@ function Movie(props) {
       </div>
       </div>
       </Link>
-      
+    )
+  }
+  else return (
+    <div className="hide">
+     
     </div>
   )
 }

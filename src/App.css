@@ -285,3 +285,68 @@ padding: 2rem 0;
 }
 /* end stars */
 
+.hide{
+  display: none;
+}
+
+.no-movies{
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.details-img img{
+  width: 300px;
+  border-radius: 10px;
+}
+
+@media(max-width:768px){
+  .grid{
+   
+    grid-template-columns: repeat(auto-fit,minmax(100px ,1fr));
+    grid-gap: 20px;
+   
+    
+  }
+
+  nav{
+    width: 200px;
+  }
+  .home{
+    margin-left: 200px;
+  }
+  .rating{
+    font-size: 0.7rem;
+    
+  }
+  .home h1{
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+  .home h2{
+    font-size: 0.7rem;
+  }
+
+  .movie-detail{
+    min-height: 70vh;
+    padding: 2rem 4rem;
+  }
+  .details-img img{
+    width: 200px;
+  }
+  .details-extra h1{
+    font-size: 2rem;
+  }
+  .details-extra h2{
+    font-size: 0.7rem;
+  }
+  .details-extra h3{
+    font-size: 0.7rem;
+  }
+  .details-extra h4{
+    font-size: 0.7rem;
+  }
+  .poster{
+    width: 90px;
+  }
+}

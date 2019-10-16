@@ -49,7 +49,7 @@ var mySwiper = new Swiper('.swiper-container', {
     setTrailer(dataTrailer.results[0]);
     setCast(finalCast);
     setMovieDetail(data);
-    console.log(data);
+    
   }
 
 
@@ -61,8 +61,32 @@ var mySwiper = new Swiper('.swiper-container', {
   return (
  
 <div >
-    <div className="movie-detail" style={{
+
+  {movie.backdrop_path ?  <div className="movie-detail" style={{
       backgroundImage:`url(https://image.tmdb.org/t/p/original${movie.backdrop_path}`,
+      backgroundSize:'cover',
+      backgroundRepeat:'no-repeat',
+      backgroundPosition:'top'
+    }}>
+   
+    <div className="back" >
+      <h1><Link to="/" style={{padding:"1rem"}}><i className="fas fa-chevron-left"></i></Link></h1>
+    </div>
+
+     <div className="details">
+
+     <div className="details-img">
+     <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}  alt=""/>
+     </div>
+     <div className="details-extra">
+     <MovieExtra movie={movie}/>
+     </div>
+    
+    
+    </div>
+    
+    </div>:<div className="movie-detail" style={{
+      backgroundColor:"#333",
       backgroundSize:'cover',
       backgroundRepeat:'no-repeat',
       backgroundPosition:'top'
@@ -84,7 +108,8 @@ var mySwiper = new Swiper('.swiper-container', {
     
     </div>
     
-    </div>
+    </div>}
+   
     
     <div className="summary">
     <div className="container">
