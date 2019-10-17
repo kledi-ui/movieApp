@@ -252,10 +252,12 @@ padding: 2rem 0;
 .swiper-container {
   width: 100%;
   height: 300px;
+  
 }
 .poster{
   width: 150px;
   border-radius: 10px;
+  
 }
 .title{
   font-size: 2.5rem;
@@ -323,6 +325,9 @@ padding: 2rem 0;
   width: 100%;
   height: 100%;
 }
+.poster-div{
+text-align: center;
+}
 
 @media(max-width:768px){
   .grid{
@@ -372,6 +377,7 @@ padding: 2rem 0;
   }
   .poster{
     width: 90px;
+    
   }
   .trailer{
     
@@ -475,9 +481,11 @@ padding: 2rem 0;
 
   .poster{
     width: 70px;
+   
   }
   .poster-name{
 font-size: 0.7rem;
+
   }
   .trailer{
     
