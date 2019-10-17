@@ -8,7 +8,7 @@
 body{
   font-family: 'Poppins', sans-serif;
   color: #fff;
-  
+  background-color: #222A31;
 }
 
 
@@ -84,12 +84,17 @@ ul{
   background: #222A31;
 }
 .search{
-  
+
+  position: fixed;
+  top: 0;
+  left: 250px;
+  width: calc(100% - 250px);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
   background: #1A1C20;
+  z-index: 999;
 
 }
 
@@ -120,6 +125,7 @@ ul{
   transform: translateY(-50%);
 }
 .grid{
+  margin-top: 10vh;
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(220px ,1fr));
   
@@ -372,6 +378,10 @@ padding: 2rem 0;
     height: 300px;
    
   } 
+  .search{
+    left: 200px;
+    width: calc(100% - 200px);
+  }
 }
 
 
@@ -473,5 +483,9 @@ padding: 2rem 0;
   } 
   .swiper-container{
     height: 220px;
+  }
+  .search{
+    left: 100px;
+    width: calc(100% - 100px);
   }
 }

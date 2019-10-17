@@ -5,7 +5,7 @@ function MovieList({movies,loading}) {
   if(loading===true){
     return <Spinner/>
   }else return (
-    <div>
+    <div >
       <div className="grid">
      
     {movies.map(movie=>(
