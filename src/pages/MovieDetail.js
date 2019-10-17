@@ -130,11 +130,12 @@ var mySwiper = new Swiper('.swiper-container', {
     <h1 className="mb" >Summary</h1>
     <p className="mb" >{movie.overview}</p>
     <h1 className="mb" >Trailer</h1>
-      <div className="trailer mb" >
-      {trailer!== undefined ? <iframe className="video" title="Trailer" width="560" height="315" src={`https://www.youtube.com/embed/${trailer.key}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> : null }
+    {trailer!== undefined ?  <div className="trailer mb" >
+      <iframe className="video" title="Trailer" width="560" height="315" src={`https://www.youtube.com/embed/${trailer.key}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>  
       
       
-      </div>
+      </div>: <div className="hide"></div> }
+     
       <h1 className="mb" >Cast</h1>
       <div className="cast">
       <div className="swiper-container" >

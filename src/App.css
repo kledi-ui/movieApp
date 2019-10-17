@@ -19,7 +19,7 @@ nav{
   left: 0;
   width: 250px;
   height: 100%;
-  background:  #1A1C20 ;
+  background:  #191C1F;
   display: flex;
   flex-direction: column;
   
@@ -30,11 +30,12 @@ ul{
 
 .logo{
   text-align: center;
-  height: 10vh;
+  height: 7vh;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+  background:  #F83745 ;
 }
 .movie-categories{
   margin-bottom: 3rem;
@@ -47,8 +48,8 @@ ul{
 }
 .movie-categories li:hover{
  background: rgb(66, 84, 93);
- border-left: 3px solid #0CD0FC ;
- color: #0CD0FC ;
+ border-left: 3px solid #FF424F ;
+ color: #FF424F ;
 }
 
 .categorie-active{
@@ -65,8 +66,8 @@ ul{
 }
 .movie-sub-categories li:hover{
   background: rgb(66, 84, 93);
-  border-left: 3px solid #0CD0FC ;
-  color: #0CD0FC ;
+  border-left: 3px solid #FF424F ;
+  color: #FF424F ;
  }
 
 
@@ -92,8 +93,8 @@ ul{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
-  background: #1A1C20;
+  height: 7vh;
+  background:  #FF424F ;
   z-index: 999;
 
 }
@@ -101,13 +102,13 @@ ul{
 .search input{
   background: #222A31;
   border-radius: 30px;
-  padding: 1rem 1rem 1rem 3rem ;
+  padding: 0.9rem 0.9rem 0.9rem 3rem ;
   border:none;
   color: #fff;
   display: inline-block;
   transition: all 0.2s;
   width: 300px;
-  font-size: 1.1rem;
+  font-size: 1rem;
 
 }
 .search input:focus{
@@ -443,7 +444,7 @@ padding: 2rem 0;
   }
 
   .movie-detail{
-    min-height: 650px;
+    min-height: 450px;
     padding: 2rem 2rem;
   }
   .details-img img{
