@@ -25,7 +25,7 @@ function App() {
     
     const data = await response.json();
 
-    
+    console.log(data);
     setMovies(data.results);
     setLoading(false);
   }

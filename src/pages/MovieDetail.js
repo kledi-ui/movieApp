@@ -7,7 +7,7 @@ function MovieDetail(props) {
 
   
 var mySwiper = new Swiper('.swiper-container', { 
-  slidesPerView: 2,
+  slidesPerView: 3,
   spaceBetween: 10,
   autoplay: {
     delay: 3000,
@@ -21,6 +21,7 @@ var mySwiper = new Swiper('.swiper-container', {
     640: {
       slidesPerView: 3,
       spaceBetween: 20,
+    
     },
     768: {
       slidesPerView: 4,

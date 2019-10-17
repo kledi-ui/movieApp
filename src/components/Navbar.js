@@ -63,7 +63,7 @@ function Navbar(props) {
            <li onClick={getReleases}>New Releases</li>
            <li onClick={getTrending}>Trending</li>  
            <li onClick={getSoon}>Coming Soon</li>  
-           <li onClick={getLater}>Watch later</li>  
+           <li onClick={getLater}>Top Rated</li>  
       </ul>
       <h3 className="categories-header">Categories</h3>
       <ul className="movie-sub-categories mb">

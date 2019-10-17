@@ -38,7 +38,7 @@ ul{
   background:  #F83745 ;
 }
 .movie-categories{
-  margin-bottom: 3rem;
+  padding: 2rem 0;
 }
 .movie-categories li{
   padding: 1rem 2rem;
@@ -102,7 +102,7 @@ ul{
 .search input{
   background: #222A31;
   border-radius: 30px;
-  padding: 0.9rem 0.9rem 0.9rem 3rem ;
+  padding: 0.8rem 0.8rem 0.8rem 3rem ;
   border:none;
   color: #fff;
   display: inline-block;
@@ -240,7 +240,7 @@ a{
 }
 .genres h4{
   border-left: 2px solid white;
-  padding: 0.5rem 1rem;
+  padding: 0rem 0.5rem;
 }
 .summary{
 background: #161130;
@@ -435,12 +435,12 @@ padding: 2rem 0;
     font-size: 0.6rem;
   }
   .search input{
-    width: 200px;
+    width: 140px;
     padding: 0.5rem 0.5rem 0.5rem 2.4rem;
     font-size: 0.7rem;
   }
   .search input:focus{
-    width: 230px;
+    width: 180px;
   }
 
   .movie-detail{
@@ -452,7 +452,7 @@ padding: 2rem 0;
     
   }
   .details-extra h1{
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .details-extra h2{
     display:none;
@@ -474,19 +474,29 @@ padding: 2rem 0;
   }
 
   .poster{
-    width: 90px;
+    width: 70px;
+  }
+  .poster-name{
+font-size: 0.7rem;
   }
   .trailer{
     
     width: 100%;
-    height: 300px;
+    height: 220px;
    
   } 
   .swiper-container{
-    height: 220px;
+    
+    height: 180px;
   }
   .search{
     left: 100px;
     width: calc(100% - 100px);
+  }
+  .spinner img{
+    width: 50px;
+  }
+  .movie-categories{
+    padding: 1rem 0;
   }
 }
