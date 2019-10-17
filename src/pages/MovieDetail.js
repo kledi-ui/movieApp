@@ -5,39 +5,40 @@ import Person from '../components/Person'
 import Swiper from 'swiper';
 function MovieDetail(props) {
 
-  
-var mySwiper = new Swiper('.swiper-container', { 
-  slidesPerView: 3,
-  spaceBetween: 10,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 3,
-      spaceBetween: 20,
-    
+  var mySwiper = new Swiper('.swiper-container', { 
+    slidesPerView: 3,
+    spaceBetween: 10,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
     },
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 40,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
     },
-    1024: {
-      slidesPerView: 5,
-      spaceBetween: 50,
-    },
-  }
- });
+    breakpoints: {
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 5,
+        spaceBetween: 50,
+      },
+    }
+   });
 
 
 
  useEffect(()=>{
   getSingleMovie();
+  
+  
  },[]);
 
   const [movie,setMovieDetail]= useState({});
@@ -85,7 +86,7 @@ var mySwiper = new Swiper('.swiper-container', {
     }}>
    
     <div className="back" >
-      <h1><Link to="/" style={{padding:"1rem"}}><i className="fas fa-chevron-left"></i></Link></h1>
+      <h1><Link to="/" style={{padding:"1rem 1rem 1rem 0rem"}}><i className="fas fa-chevron-left"></i></Link></h1>
     </div>
 
      <div className="details">
