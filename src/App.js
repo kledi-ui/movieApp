@@ -12,7 +12,7 @@ import MovieDetail from './pages/MovieDetail';
 
 function App() {
 
-
+ 
   const [movies,setMovies]=useState([]);
   // const [movieDetail,setMovieDetail]=useState({});
   const [loading,setLoading]=useState(false);

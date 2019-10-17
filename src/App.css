@@ -285,6 +285,10 @@ padding: 2rem 0;
 }
 /* end stars */
 
+.imbd{
+  width: 180px;
+  margin: 0 auto;
+}
 .hide{
   display: none;
 }
@@ -341,7 +345,7 @@ padding: 2rem 0;
   }
 
   .movie-detail{
-    min-height: 70vh;
+    min-height: 700px;
     padding: 2rem 4rem;
   }
   .details-img img{
@@ -429,7 +433,7 @@ padding: 2rem 0;
   }
 
   .movie-detail{
-    min-height: 70vh;
+    min-height: 650px;
     padding: 2rem 2rem;
   }
   .details-img img{
@@ -467,4 +471,7 @@ padding: 2rem 0;
     height: 300px;
    
   } 
+  .swiper-container{
+    height: 220px;
+  }
 }
