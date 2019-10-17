@@ -74,7 +74,7 @@ function Navbar(props) {
            <li onClick={getDramaMovie}>Drama</li> 
            <li onClick={getComedyMovie}>Comedy</li>
       </ul>
-      <img src={Img} alt="" style={{width:"160px",margin:"0 auto"}}/>
+      <img className="imbd"src={Img} alt="" />
       </nav>
     </div>
   )

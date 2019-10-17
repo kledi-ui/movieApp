@@ -7,7 +7,7 @@ function MovieDetail(props) {
 
   
 var mySwiper = new Swiper('.swiper-container', { 
-  slidesPerView: 4,
+  slidesPerView: 2,
   spaceBetween: 10,
   autoplay: {
     delay: 3000,
@@ -17,6 +17,20 @@ var mySwiper = new Swiper('.swiper-container', {
     el: '.swiper-pagination',
     clickable: true,
   },
+  breakpoints: {
+    640: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 5,
+      spaceBetween: 50,
+    },
+  }
  });
 
 
@@ -117,7 +131,7 @@ var mySwiper = new Swiper('.swiper-container', {
     <p className="mb">{movie.overview}</p>
     <h1 className="mb">Trailer</h1>
       <div className="trailer mb">
-      {trailer!== undefined ? <iframe title="Trailer" width="560" height="315" src={`https://www.youtube.com/embed/${trailer.key}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> : null }
+      {trailer!== undefined ? <iframe className="video" title="Trailer" width="560" height="315" src={`https://www.youtube.com/embed/${trailer.key}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> : null }
       
       
       </div>
