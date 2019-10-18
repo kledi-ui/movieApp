@@ -1,8 +1,33 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import icon from '../search.svg';
 function Search(props) {
 
+  
+  const[btnname,setBtnName]=useState('');
+  useEffect(()=>{
+    if(props.status==='movie'){
+      setBtnName('SHOW TV-SHOWS');
+    }else{
+      setBtnName('SHOW MOVIES');
+    }
+  },[])
 
+  const handeClick =(e)=>{
+    props.changeCategory();
+    
+    if(props.status==='movie'){
+      props.searchTvShows('popular');
+      setBtnName('SHOW MOVIES');
+      
+    }else if(props.status==='tv'){
+      props.searchMovieShow('popular');
+      setBtnName('SHOW TV-SHOWS');
+    }
+   
+
+   
+    e.preventDefault();
+  }
 
   const handeChange =(e)=>{
    
@@ -26,6 +51,7 @@ function Search(props) {
     <img src={icon} alt=""/>
     <input placeholder="Search movie ..." type="text" onChange={handeChange}/>
     </div>
+    <button className="btn-change" onClick={handeClick}>{btnname}</button>
     
     </div>
      

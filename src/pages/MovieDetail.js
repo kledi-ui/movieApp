@@ -5,7 +5,7 @@ import Person from '../components/Person'
 import Swiper from 'swiper';
 function MovieDetail(props) {
 
-  var mySwiper = new Swiper('.swiper-container', { 
+ new Swiper('.swiper-container', { 
     slidesPerView: 3,
     spaceBetween: 10,
     autoplay: {
@@ -46,17 +46,17 @@ function MovieDetail(props) {
   const [cast,setCast]=useState([]);
 
   const getSingleMovie = async()=>{
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52`);
+    const response = await fetch(`https://api.themoviedb.org/3/${props.status}/${props.match.params.id}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52`);
     
     const data = await response.json();
    
 
 
-    const responseTrailer = await fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}/videos?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US`);
+    const responseTrailer = await fetch(`https://api.themoviedb.org/3/${props.status}/${props.match.params.id}/videos?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US`);
 
     const dataTrailer = await responseTrailer.json();
 
-    const responseCast = await fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}/credits?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52`);
+    const responseCast = await fetch(`https://api.themoviedb.org/3/${props.status}/${props.match.params.id}/credits?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52`);
 
     const dataCast = await responseCast.json();
 
@@ -65,6 +65,7 @@ function MovieDetail(props) {
     setTrailer(dataTrailer.results[0]);
     setCast(finalCast);
     setMovieDetail(data);
+   
     
   }
 
@@ -95,7 +96,7 @@ function MovieDetail(props) {
      <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}  alt=""/>
      </div>
      <div className="details-extra">
-     <MovieExtra movie={movie}/>
+     <MovieExtra status={props.status} movie={movie}/>
      </div>
     
     
@@ -142,10 +143,12 @@ function MovieDetail(props) {
       <div className="cast">
       <div className="swiper-container" >
       <div className="swiper-wrapper">
+      
         {cast.map(cast=>(
-         <Person cast={cast} key={cast.cast_id}/>
+         <Person cast={cast} key={cast.cast_id} key={cast.credit_id}/>
         ))}
-        
+
+   
         
     </div>
     <div className="swiper-pagination"></div>

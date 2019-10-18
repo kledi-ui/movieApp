@@ -7,10 +7,10 @@ function Home(props) {
 
   return (
     <div>
-      <Navbar getMovies={props.getMovies} getMoviesGenre={props.getMoviesGenre}/>
+      <Navbar status={props.status} getMovies={props.getMovies} getMoviesGenre={props.getMoviesGenre}/>
       <div className="home">
-      <Search searchMovie={props.searchMovie}/>
-      {props.movies.length===0 ? <NoMovies/> : <MovieList loading={props.loading} movies={props.movies}/> }
+      <Search status={props.status} searchTvShows={props.searchTvShows} searchMovieShow={props.searchMovieShow} changeCategory={props.changeCategory} searchMovie={props.searchMovie}/>
+      {props.movies.length===0 ? <NoMovies/> : <MovieList status={props.status} loading={props.loading} movies={props.movies}/> }
       
       </div>
       

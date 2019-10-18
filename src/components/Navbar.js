@@ -6,26 +6,36 @@ function Navbar(props) {
   
   
   
-
-
-  const getTrending =()=>{
- 
-    props.getMovies('popular');
-  }
-  const getReleases =()=>{
-   
-    props.getMovies('now_playing');
-  }
-
   const getLater =()=>{
    
     props.getMovies('top_rated');
   }
 
-  const getSoon =()=>{
-  
-    props.getMovies('upcoming');
+  const getTrending =()=>{
+ 
+    props.getMovies('popular');
   }
+
+
+  const getReleases =()=>{
+   if(props.status==='movie'){
+    props.getMovies('now_playing');
+   }else if(props.status==='tv'){
+    props.getMovies('airing_today');
+   }
+  
+  }
+
+  const getSoon =()=>{
+    if(props.status==='movie'){
+      props.getMovies('upcoming');
+     }else if(props.status==='tv'){
+      props.getMovies('on_the_air');
+     }
+    
+  }
+
+
   const getHorrorMovie =()=>{
   
     props.getMoviesGenre(27);
@@ -60,9 +70,12 @@ function Navbar(props) {
        </div>
 
       <ul className="movie-categories">
-           <li onClick={getReleases}>New Releases</li>
-           <li onClick={getTrending}>Trending</li>  
-           <li onClick={getSoon}>Coming Soon</li>  
+            {props.status==='movie' ?<li onClick={getReleases}>New Releases</li> :
+          <li onClick={getReleases}>Airing Today</li> }
+           
+           <li onClick={getTrending}>Trending</li>    
+           {props.status==='movie' ?<li onClick={getSoon}>Coming Soon</li> :
+          <li onClick={getSoon}>On The Air</li> }
            <li onClick={getLater}>Top Rated</li>  
       </ul>
       <h3 className="categories-header">Categories</h3>

@@ -1,13 +1,15 @@
 import React from 'react'
 import Stars from './Stars';
-function MovieExtra({movie}) {
+function MovieExtra({movie,status}) {
 
 
 
 
   return (
     <div>
-    <h1 className="mb title">{movie.title}</h1>
+      {status==='movie' ? <h1 className="mb title">{movie.original_title}</h1> :
+    <h1 className="mb title">{movie.original_name}</h1>}
+    
      <h2 className="mb">Rating: {movie.vote_average} / 10</h2>
      <Stars vote={movie.vote_average}/>
      <h3 className="mb">{movie.tagline}</h3>
