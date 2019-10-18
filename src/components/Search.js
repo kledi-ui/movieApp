@@ -6,7 +6,7 @@ function Search(props) {
   const[btnname,setBtnName]=useState('');
   useEffect(()=>{
     if(props.status==='movie'){
-      setBtnName('SHOW TV-SHOWS');
+      setBtnName('TV-SHOWS');
     }else{
       setBtnName('SHOW MOVIES');
     }
@@ -21,7 +21,7 @@ function Search(props) {
       
     }else if(props.status==='tv'){
       props.searchMovieShow('popular');
-      setBtnName('SHOW TV-SHOWS');
+      setBtnName('TV-SHOWS');
     }
    
 
@@ -51,7 +51,7 @@ function Search(props) {
     <img src={icon} alt=""/>
     <input placeholder="Search movie ..." type="text" onChange={handeChange}/>
     </div>
-    <button className="btn-change" onClick={handeClick}>{btnname}</button>
+    <button className="btn-change" onClick={handeClick}><i className="fas fa-play"></i> {btnname}</button>
     
     </div>
      
