@@ -12,24 +12,32 @@ import MovieDetail from './pages/MovieDetail';
 
 function App() {
 
- 
+  const [arrayMovie,setarrayMovie]=useState([]);
   const [movies,setMovies]=useState([]);
-  // const [movieDetail,setMovieDetail]=useState({});
   const [loading,setLoading]=useState(false);
   const [status,setStatus] =useState('movie');
+  const [currentIndex,setCurrentIndex]=useState(1);
  
   // Get movies new Releases
 
   const getMovies = async(movie)=>{
     setLoading(true);
-    const response = await fetch(`https://api.themoviedb.org/3/${status}/${movie}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=1`);
+    const response1 = await fetch(`https://api.themoviedb.org/3/${status}/${movie}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=1`);
 
-  
-    
-    const data = await response.json();
+    const data1 = await response1.json();
 
+    const response2 = await fetch(`https://api.themoviedb.org/3/${status}/${movie}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=2`);
 
-    setMovies(data.results);
+    const data2 = await response2.json();
+
+    const response3 = await fetch(`https://api.themoviedb.org/3/${status}/${movie}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=3`);
+
+    const data3 = await response3.json();
+    const data = data1.results.concat(data2.results);
+
+   
+    setarrayMovie(data.concat(data3.results));
+    setMovies(data1.results);
     setLoading(false);
   }
 
@@ -65,21 +73,35 @@ function App() {
 
   const searchTvShows = async(name)=>{
     setLoading(true);
-    const response = await fetch(`https://api.themoviedb.org/3/tv/${name}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=1`);
-    const data = await response.json();
+    const response1 = await fetch(`https://api.themoviedb.org/3/tv/${name}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=1`);
+    const data1 = await response1.json();
+    const response2 = await fetch(`https://api.themoviedb.org/3/tv/${name}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=2`);
+    const data2 = await response2.json();
+    const response3 = await fetch(`https://api.themoviedb.org/3/tv/${name}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=3`);
+    const data3 = await response3.json();
+    const data = data1.results.concat(data2.results);
 
-   
-    setMovies(data.results);
+    setarrayMovie(data.concat(data3.results));
+    setMovies(data1.results);
     setLoading(false);
   }
 
   const searchMovieShow = async(name)=>{
     setLoading(true);
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${name}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=1`);
-    const data = await response.json();
+    const response1 = await fetch(`https://api.themoviedb.org/3/movie/${name}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=1`);
+    const data1 = await response1.json();
 
-    
-    setMovies(data.results);
+  
+    const response2 = await fetch(`https://api.themoviedb.org/3/movie/${name}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=2`);
+    const data2 = await response2.json();
+
+    const response3 = await fetch(`https://api.themoviedb.org/3/movie/${name}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US&page=3`);
+    const data3 = await response3.json();
+
+    const data = data1.results.concat(data2.results);
+
+    setarrayMovie(data.concat(data3.results));
+    setMovies(data1.results);
     setLoading(false);
   }
 
@@ -97,8 +119,20 @@ function App() {
     
   }
 
+  // Change Pagination
 
+  const changePagination = (array)=>{
+    setMovies(array);
+  }
 
+  const changeCurrentIndex = (i)=>{
+    setCurrentIndex(i);
+  }
+  // Array movie to 0
+
+  const emptyArrayMovie =()=>{
+    setarrayMovie([]);
+  }
  useEffect(()=>{
   
   getMovies('popular');
@@ -120,11 +154,11 @@ function App() {
       
           <Route exact path='/' render={props=>(
            
-            <Home {...props} status={status} changeCategory={changeCategory} loading={loading} movies={movies} getMoviesGenre={getMoviesGenre} getMovies={getMovies} searchTvShows={searchTvShows} searchMovieShow={searchMovieShow} searchMovie={searchMovie}/>
+            <Home {...props} status={status} changeCategory={changeCategory} loading={loading} movies={movies} arrayMovie={arrayMovie} getMoviesGenre={getMoviesGenre} getMovies={getMovies} searchTvShows={searchTvShows} searchMovieShow={searchMovieShow} searchMovie={searchMovie} changePagination={changePagination} changeCurrentIndex={changeCurrentIndex} currentIndex={currentIndex} emptyArrayMovie={emptyArrayMovie}/>
           )}/>
           <Route exact path={`/${status}/:id`} render={props=>(
                
-              <MovieDetail {...props} status={status}/>
+              <MovieDetail {...props} status={status} />
           
           )}/>
           

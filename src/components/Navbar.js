@@ -9,11 +9,13 @@ function Navbar(props) {
   const getLater =()=>{
    
     props.getMovies('top_rated');
+    props.changeCurrentIndex(1);
   }
 
   const getTrending =()=>{
  
     props.getMovies('popular');
+    props.changeCurrentIndex(1);
   }
 
 
@@ -23,7 +25,7 @@ function Navbar(props) {
    }else if(props.status==='tv'){
     props.getMovies('airing_today');
    }
-  
+   props.changeCurrentIndex(1);
   }
 
   const getSoon =()=>{
@@ -32,33 +34,39 @@ function Navbar(props) {
      }else if(props.status==='tv'){
       props.getMovies('on_the_air');
      }
-    
+     props.changeCurrentIndex(1);
   }
 
 
   const getHorrorMovie =()=>{
-  
+    
     props.getMoviesGenre(27);
+    props.emptyArrayMovie();
   }
   const getRomanceMovie =()=>{
   
     props.getMoviesGenre(10749);
+    props.emptyArrayMovie();
   }
   const getAdventureMovie =()=>{
   
     props.getMoviesGenre(12);
+    props.emptyArrayMovie();
   }
   const getAnimatedMovie =()=>{
   
     props.getMoviesGenre(16);
+    props.emptyArrayMovie();
   }
   const getDramaMovie =()=>{
   
     props.getMoviesGenre(18);
+    props.emptyArrayMovie();
   }
   const getComedyMovie =()=>{
   
     props.getMoviesGenre(35);
+    props.emptyArrayMovie();
   }
 
   return (
