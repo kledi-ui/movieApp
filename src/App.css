@@ -347,6 +347,38 @@ padding: 2rem 0;
 .poster-div{
 text-align: center;
 }
+/* Pagination */
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+.pagination-container ul{
+  display: flex;
+  
+}
+
+.active-pagination{
+  background: #F83745;
+  color: #333;
+}
+.pagination-container ul li{
+  cursor: pointer;
+ padding: 0.5rem 1rem;
+
+  border:2px solid white;
+  margin-left: 10px;
+}
+.pagination-container ul li:hover{
+  background: #F83745;
+  color: #333;
+  transition: 0.5s;
+}
+
+
+
+
 
 @media(max-width:768px){
   .grid{

@@ -1,8 +1,10 @@
 import React from 'react'
 import Movie from '../components/Movie';
 import Spinner from '../components/Spinner';
-function MovieList({movies,loading,status}) {
+import Pagination from '../components/Pagination'
+function MovieList({movies,loading,status,changePagination,arrayMovie,changeCurrentIndex,currentIndex}) {
 
+  
   
 
   if(loading===true){
@@ -16,7 +18,8 @@ function MovieList({movies,loading,status}) {
     ))}
     
       </div>
-
+      {arrayMovie.length>25 ? <Pagination arrayMovie={arrayMovie} changePagination={changePagination} changeCurrentIndex={changeCurrentIndex} currentIndex={currentIndex}/>: null }
+      
     </div>
   )
 }

@@ -25,6 +25,7 @@ function Search(props) {
     }
    
 
+    props.changeCurrentIndex(1);
    
     e.preventDefault();
   }
