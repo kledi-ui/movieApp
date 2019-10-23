@@ -41,6 +41,8 @@ npm run start
 * [ASYNC/AWAIT](https://javascript.info/async-await) - To Fetch the Data from the API
 * [TMDB API](https://www.themoviedb.org/) - Used API
 
+Check package.json for extra details.
+
 ## Authors
 
 * **Kledjon Alushani** 
