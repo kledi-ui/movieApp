@@ -52,6 +52,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* [Swiper.js](https://swiperjs.com/) - Slider used to build cast sesction
+* [Swiper.js](https://swiperjs.com/) - Slider used to build cast section
 * [react-router-scroll-top](https://www.npmjs.com/package/react-router-scroll-top)
-* [Dribble.com](https://dribbble.com/) - Inspiration
+* [Dribble.com](https://dribbble.com/) - Inspiration Design
