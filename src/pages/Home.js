@@ -10,7 +10,7 @@ function Home(props) {
     <div>
       <Navbar  emptyArrayMovie={props.emptyArrayMovie} changeCurrentIndex={props.changeCurrentIndex} status={props.status} getMovies={props.getMovies} getMoviesGenre={props.getMoviesGenre}/>
       <div className="home">
-      <Search status={props.status} searchTvShows={props.searchTvShows} searchMovieShow={props.searchMovieShow} changeCategory={props.changeCategory} searchMovie={props.searchMovie} changeCurrentIndex={props.changeCurrentIndex}/>
+      <Search status={props.status} searchTvShows={props.searchTvShows} searchMovieShow={props.searchMovieShow} changeCategory={props.changeCategory} searchMovie={props.searchMovie} changeCurrentIndex={props.changeCurrentIndex} emptyArrayMovie={props.emptyArrayMovie}/>
       {props.movies.length===0 ? <NoMovies/> : <MovieList status={props.status} loading={props.loading} movies={props.movies} changePagination={props.changePagination} arrayMovie={props.arrayMovie} changeCurrentIndex={props.changeCurrentIndex} currentIndex={props.currentIndex}/> }
      
       

@@ -38,7 +38,7 @@ function Search(props) {
     } else{
       props.searchMovie(e.target.value);
     }
-   
+   props.emptyArrayMovie();
   }
 
 
