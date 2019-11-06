@@ -1,72 +1,75 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import mvicon from '../movie-icon.svg'
 import Img from '../movieicon.svg'
-function Navbar(props) {
+import MovieContext from '../context/movie/movieContext';
+function Navbar() {
 
   
-  
+  const movieContext  = useContext(MovieContext);
   
   const getLater =()=>{
+    
    
-    props.getMovies('top_rated');
-    props.changeCurrentIndex(1);
+
+    movieContext.getMovies('top_rated');
+    movieContext.changeCurrentIndex(1);
   }
 
   const getTrending =()=>{
  
-    props.getMovies('popular');
-    props.changeCurrentIndex(1);
+    movieContext.getMovies('popular');
+    movieContext.changeCurrentIndex(1);
   }
 
 
   const getReleases =()=>{
-   if(props.status==='movie'){
-    props.getMovies('now_playing');
-   }else if(props.status==='tv'){
-    props.getMovies('airing_today');
+   if(movieContext.status==='movie'){
+    movieContext.getMovies('now_playing');
+   }else if(movieContext.status==='tv'){
+    movieContext.getMovies('airing_today');
    }
-   props.changeCurrentIndex(1);
+   movieContext.changeCurrentIndex(1);
   }
 
   const getSoon =()=>{
-    if(props.status==='movie'){
-      props.getMovies('upcoming');
-     }else if(props.status==='tv'){
-      props.getMovies('on_the_air');
+    if(movieContext.status==='movie'){
+      movieContext.getMovies('upcoming');
+     }else if(movieContext.status==='tv'){
+      movieContext.getMovies('on_the_air');
      }
-     props.changeCurrentIndex(1);
+     movieContext.changeCurrentIndex(1);
   }
 
 
   const getHorrorMovie =()=>{
     
-    props.getMoviesGenre(27);
-    props.emptyArrayMovie();
+    movieContext.getMoviesGenre(27);
+    movieContext.emptyArrayMovie();
   }
   const getRomanceMovie =()=>{
   
-    props.getMoviesGenre(10749);
-    props.emptyArrayMovie();
+    movieContext.getMoviesGenre(10749);
+    movieContext.emptyArrayMovie();
   }
   const getAdventureMovie =()=>{
   
-    props.getMoviesGenre(12);
-    props.emptyArrayMovie();
+    movieContext.getMoviesGenre(12);
+    movieContext.emptyArrayMovie();
   }
   const getAnimatedMovie =()=>{
   
-    props.getMoviesGenre(16);
-    props.emptyArrayMovie();
+    movieContext.getMoviesGenre(16);
+    movieContext.emptyArrayMovie();
   }
   const getDramaMovie =()=>{
   
-    props.getMoviesGenre(18);
-    props.emptyArrayMovie();
+    movieContext.getMoviesGenre(18);
+    movieContext.emptyArrayMovie();
   }
   const getComedyMovie =()=>{
   
-    props.getMoviesGenre(35);
-    props.emptyArrayMovie();
+    movieContext.getMoviesGenre(35);
+    movieContext.emptyArrayMovie();
   }
 
   return (
@@ -78,11 +81,11 @@ function Navbar(props) {
        </div>
 
       <ul className="movie-categories">
-            {props.status==='movie' ?<li onClick={getReleases}>New Releases</li> :
+            {movieContext.status==='movie' ?<li onClick={getReleases}>New Releases</li> :
           <li onClick={getReleases}>Airing Today</li> }
            
            <li onClick={getTrending}>Trending</li>    
-           {props.status==='movie' ?<li onClick={getSoon}>Coming Soon</li> :
+           {movieContext.status==='movie' ?<li onClick={getSoon}>Coming Soon</li> :
           <li onClick={getSoon}>On The Air</li> }
            <li onClick={getLater}>Top Rated</li>  
       </ul>

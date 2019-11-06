@@ -1,10 +1,13 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import MovieExtra from '../components/MovieExtra'
 import {Link } from 'react-router-dom'
 import Person from '../components/Person'
 import Swiper from 'swiper';
+import MovieContext from '../context/movie/movieContext';
 function MovieDetail(props) {
 
+  const movieContext = useContext(MovieContext);
+  
  new Swiper('.swiper-container', { 
     slidesPerView: 3,
     spaceBetween: 10,
@@ -37,7 +40,7 @@ function MovieDetail(props) {
 
  useEffect(()=>{
   getSingleMovie();
-  
+  console.log(movieContext.status);
   
  },[]);
 
@@ -46,17 +49,17 @@ function MovieDetail(props) {
   const [cast,setCast]=useState([]);
 
   const getSingleMovie = async()=>{
-    const response = await fetch(`https://api.themoviedb.org/3/${props.status}/${props.match.params.id}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52`);
+    const response = await fetch(`https://api.themoviedb.org/3/${movieContext.status}/${props.match.params.id}?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52`);
     
     const data = await response.json();
    
 
 
-    const responseTrailer = await fetch(`https://api.themoviedb.org/3/${props.status}/${props.match.params.id}/videos?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US`);
+    const responseTrailer = await fetch(`https://api.themoviedb.org/3/${movieContext.status}/${props.match.params.id}/videos?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52&language=en-US`);
 
     const dataTrailer = await responseTrailer.json();
 
-    const responseCast = await fetch(`https://api.themoviedb.org/3/${props.status}/${props.match.params.id}/credits?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52`);
+    const responseCast = await fetch(`https://api.themoviedb.org/3/${movieContext.status}/${props.match.params.id}/credits?api_key=a1d0a6ecc93d4aa219817a9de0cd9c52`);
 
     const dataCast = await responseCast.json();
 
@@ -96,7 +99,7 @@ function MovieDetail(props) {
      <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}  alt=""/>
      </div>
      <div className="details-extra">
-     <MovieExtra status={props.status} movie={movie}/>
+     <MovieExtra status={movieContext.status} movie={movie}/>
      </div>
     
     

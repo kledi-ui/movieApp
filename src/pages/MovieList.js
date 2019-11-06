@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Movie from '../components/Movie';
 import Spinner from '../components/Spinner';
 import Pagination from '../components/Pagination'
-function MovieList({movies,loading,status,changePagination,arrayMovie,changeCurrentIndex,currentIndex}) {
+import MovieContext from '../context/movie/movieContext'
 
-  
-  
+function MovieList() {
+
+    const movieContext = useContext(MovieContext);
+    const {movies,loading,status,changePagination,arrayMovie,changeCurrentIndex,currentIndex} = movieContext;
 
   if(loading===true){
     return <Spinner/>

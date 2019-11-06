@@ -1,17 +1,19 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Search from '../components/Search';
 import MovieList from './MovieList';
 import Navbar from '../components/Navbar';
 import NoMovies from '../components/NoMovies';
+import MovieContext from '../context/movie/movieContext';
 
-function Home(props) {
-
+function Home() {
+  const movieContext = useContext(MovieContext);
+ 
   return (
     <div>
-      <Navbar  emptyArrayMovie={props.emptyArrayMovie} changeCurrentIndex={props.changeCurrentIndex} status={props.status} getMovies={props.getMovies} getMoviesGenre={props.getMoviesGenre}/>
+      <Navbar/>
       <div className="home">
-      <Search status={props.status} searchTvShows={props.searchTvShows} searchMovieShow={props.searchMovieShow} changeCategory={props.changeCategory} searchMovie={props.searchMovie} changeCurrentIndex={props.changeCurrentIndex} emptyArrayMovie={props.emptyArrayMovie}/>
-      {props.movies.length===0 ? <NoMovies/> : <MovieList status={props.status} loading={props.loading} movies={props.movies} changePagination={props.changePagination} arrayMovie={props.arrayMovie} changeCurrentIndex={props.changeCurrentIndex} currentIndex={props.currentIndex}/> }
+      <Search/>
+      {movieContext.movies.length===0 ? <NoMovies/> : <MovieList/> }
      
       
       </div>

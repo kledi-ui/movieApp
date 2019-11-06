@@ -1,11 +1,19 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import icon from '../search.svg';
-function Search(props) {
+import MovieContext from '../context/movie/movieContext';
 
-  
+
+function Search() {
+
+
+
+  const movieContext = useContext(MovieContext);
+
+
   const[btnname,setBtnName]=useState('');
   useEffect(()=>{
-    if(props.status==='movie'){
+ 
+    if(movieContext.status==='movie'){
       setBtnName('TV-SHOWS');
     }else{
       setBtnName('SHOW MOVIES');
@@ -13,19 +21,19 @@ function Search(props) {
   },[])
 
   const handeClick =(e)=>{
-    props.changeCategory();
+    movieContext.changeCategory();
     
-    if(props.status==='movie'){
-      props.searchTvShows('popular');
+    if(movieContext.status==='movie'){
+      movieContext.searchTvShows('popular');
       setBtnName('SHOW MOVIES');
       
-    }else if(props.status==='tv'){
-      props.searchMovieShow('popular');
+    }else if(movieContext.status==='tv'){
+      movieContext.searchMovieShow('popular');
       setBtnName('TV-SHOWS');
     }
    
 
-    props.changeCurrentIndex(1);
+    movieContext.changeCurrentIndex(1);
    
     e.preventDefault();
   }
@@ -36,9 +44,9 @@ function Search(props) {
     if(e.target.value===''){
       console.log('enter title');
     } else{
-      props.searchMovie(e.target.value);
+      movieContext.searchMovie(e.target.value);
     }
-   props.emptyArrayMovie();
+    movieContext.emptyArrayMovie();
   }
 
 
