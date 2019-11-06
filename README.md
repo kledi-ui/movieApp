@@ -37,6 +37,7 @@ npm run start
 ## Built With
 
 * [React.js](https://reactjs.org/) - The web framework used
+* [Context API](https://reactjs.org/docs/context.html) - State Management
 * [react-router-dom](https://www.npmjs.com/package/react-router-dom) - Used to build the routes
 * [ASYNC/AWAIT](https://javascript.info/async-await) - To Fetch the Data from the API
 * [TMDB API](https://www.themoviedb.org/) - Used API
